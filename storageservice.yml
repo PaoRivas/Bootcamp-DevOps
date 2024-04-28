@@ -20,5 +20,6 @@ jobs:
         with:
           image: postman/newman:latest
           options: -v ${{ github.workspace }}/collections:/etc/newman
-          run: run "storage_service_collection.json" --reporters="cli"
+          run: |
+            newman run "storage_service_collection.json" --reporters="cli"
 
