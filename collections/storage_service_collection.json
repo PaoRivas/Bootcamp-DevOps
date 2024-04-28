@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "de79c823-2372-4b42-99ec-85140d5b7d61",
+		"name": "StorageService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11072098"
+	},
+	"item": [
+		{
+			"name": "GetFolders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code is 200ok\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"}\r",
+							")\r",
+							"pm.test(\"name is abc\", function () {\r",
+							"    pm.expect(pm.response.json()[0].name).to.eql(\"abc\");\r",
+							"}\r",
+							")\r",
+							"pm.test(\"response contains an id\", function () {\r",
+							"    pm.expect(pm.response.json()[0]._id).to.exist;\r",
+							"}\r",
+							")"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.210.69.41/api/storage/db/folders/null",
+					"protocol": "http",
+					"host": [
+						"172",
+						"210",
+						"69",
+						"41"
+					],
+					"path": [
+						"api",
+						"storage",
+						"db",
+						"folders",
+						"null"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostFolders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code is 200ok\", function(){\r",
+							"    pm.response.to.have.status(201)\r",
+							"}\r",
+							")"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userId\": \"6626aff4bdbdb7049fc41378\",\r\n        \"parentFolderId\": \"null\",\r\n        \"name\": \"folder_Pao\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.210.69.41/api/storage/db/folders",
+					"protocol": "http",
+					"host": [
+						"172",
+						"210",
+						"69",
+						"41"
+					],
+					"path": [
+						"api",
+						"storage",
+						"db",
+						"folders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
