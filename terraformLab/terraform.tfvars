@@ -1,0 +1,6 @@
+env      = "prod"
+owner    = "Devops"
+product  = "Codec"
+location = "eastus2"
+sourceip = "*"
+password = "P@ssword"
