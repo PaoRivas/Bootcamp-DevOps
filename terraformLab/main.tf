@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "devops_bootcamp_rg" {
 }
 
 resource "azurerm_virtual_network" "devops_bootcamp_vnet" {
-  name                = "DevopsVNet"
+  name                = "DevopsVNet_Lab"
   address_space       = ["10.0.0.0/16"]
   location            = var.location
   resource_group_name = azurerm_resource_group.devops_bootcamp_rg.name
@@ -25,7 +25,7 @@ resource "azurerm_subnet" "private_subnet" {
 }
 
 resource "azurerm_public_ip" "publicip" {
-  name                = "PublicIP"
+  name                = "PublicIP_Lab"
   resource_group_name = azurerm_resource_group.devops_bootcamp_rg.name
   location            = azurerm_resource_group.devops_bootcamp_rg.location
   allocation_method   = "Static"
